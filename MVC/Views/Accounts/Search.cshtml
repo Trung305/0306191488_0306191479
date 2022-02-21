@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MVC.Models.Account>
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_layout_admin.cshtml";
+}
+
+<h2>Search</h2>
+<h1>Search</h1>
+<form asp-controller="Accounts" asp-action="Search" method="get" class="form-inline mt-5 mt-md-0 d-none d-lg-block">
+    Tên đăng nhập: <input class="form-control mr-sm-auto search" style="width:120px; height:10px " type="text" name="username" />
+    Email: <input class="form-control mr-sm-1 search" style="width:120px; height:10px " type="text" name="email" />
+    SĐT:  <input class="form-control mr-sm-1 search" style="width:120px; height:10px " type="text" name="phone" />
+    Địa chỉ: <input class="form-control mr-sm-1 search" style="width:120px; height:10px " type="text" name="address"  />
+    Họ tên: <input class="form-control mr-sm-1 search" style="width:120px; height:10px " type="text" name="fullname" />
+    <button type="submit">Tìm kiếm</button>
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avatar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Avatar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

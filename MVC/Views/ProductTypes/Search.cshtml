@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVC.Models.ProductType>
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_layout_admin.cshtml";
+}
+
+<h2>Search</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-controller="ProductTypes" asp-action="Search" method="get" class="form-inline mt-5 mt-md-0 d-none d-lg-block">
+    Tên sản phầm:  <input class="form-control mr-sm-1 search" style="width:150px; height:10px " type="text" name="name" />
+    <button type="submit">Tìm kiếm</button>
+</form>
+<br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

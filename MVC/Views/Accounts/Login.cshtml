@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_layout_admin.cshtml";
+}
+
+<h1>Login</h1>
+
+@model MVC.Models.Account
+<form asp-controller="Accounts" asp-action="Login" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-group" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-group" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Đăng nhập</button>
+    </div>
+    <p>@ViewBag.ErrorMessage</p>
+</form>

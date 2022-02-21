@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<!--
+Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
+Version: 1.0.0
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- Head BEGIN -->
+<head>
+    <meta charset="utf-8">
+    <title>Metronic Shop UI</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta content="Metronic Shop UI description" name="description">
+    <meta content="Metronic Shop UI keywords" name="keywords">
+    <meta content="keenthemes" name="author">
+
+    <meta property="og:site_name" content="-CUSTOMER VALUE-">
+    <meta property="og:title" content="-CUSTOMER VALUE-">
+    <meta property="og:description" content="-CUSTOMER VALUE-">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="-CUSTOMER VALUE-"><!-- link to image for socio -->
+    <meta property="og:url" content="-CUSTOMER VALUE-">
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Fonts START -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"><!--- fonts for slider on the index page -->
+    <!-- Fonts END -->
+    <!-- Global styles START -->
+    <link href="~/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Global styles END -->
+    <!-- Page level plugin styles START -->
+    <link href="~/assets/pages/css/animate.css" rel="stylesheet">
+    <link href="~/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+    <link href="~/assets/plugins/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
+    <!-- Page level plugin styles END -->
+    <!-- Theme styles START -->
+    <link href="~/assets/pages/css/components.css" rel="stylesheet">
+    <link href="~/assets/pages/css/slider.css" rel="stylesheet">
+    <link href="~/assets/pages/css/style-shop.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/corporate/css/style.css" rel="stylesheet">
+    <link href="~/assets/corporate/css/style-responsive.css" rel="stylesheet">
+    <link href="~/assets/corporate/css/themes/red.css" rel="stylesheet" id="style-color">
+    <link href="~/assets/corporate/css/custom.css" rel="stylesheet">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/css/price-range.css" rel="stylesheet">
+    <link href="~/css/animate.css" rel="stylesheet">
+    <link href="~/css/main.css" rel="stylesheet">
+    <link href="~/css/responsive.css" rel="stylesheet">
+    <!-- Theme styles END -->
+</head>
+
+
+<!-- Head END -->
+<!-- Body BEGIN -->
+<body class="ecommerce">
+    <!-- BEGIN STYLE CUSTOMIZER -->
+    <div class="color-panel hidden-sm">
+        <div class="color-mode-icons icon-color"></div>
+        <div class="color-mode-icons icon-color-close"></div>
+        <div class="color-mode">
+            <p>THEME COLOR</p>
+            <ul class="inline">
+                <li class="color-red current color-default" data-style="red"></li>
+                <li class="color-blue" data-style="blue"></li>
+                <li class="color-green" data-style="green"></li>
+                <li class="color-orange" data-style="orange"></li>
+                <li class="color-gray" data-style="gray"></li>
+                <li class="color-turquoise" data-style="turquoise"></li>
+            </ul>
+        </div>
+    </div>
+    <!-- END BEGIN STYLE CUSTOMIZER -->
+    <!-- BEGIN TOP BAR -->
+    <partial name="_TopBar" />
+    <!-- END TOP BAR -->
+    <!-- BEGIN HEADER -->
+    <partial name="_Header" />
+    <!-- Header END -->
+    <!-- BEGIN SLIDER -->
+    <!--<partial name="_Slider" />-->
+    <!-- END SLIDER -->
+
+    <div class="main">
+        <div class="container">
+            <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+            @RenderBody()
+
+        </div>
+    </div>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.scrollUp.min.js"></script>
+    <script src="~/js/jquery.prettyPhoto.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+<!-- END BODY -->
+</html>

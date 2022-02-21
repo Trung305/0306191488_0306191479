@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_layout_admin.cshtml";
+}
+<form asp-controller="Products" asp-action = "Search" method="get" class="form-inline mt-5 mt-md-0 d-none d-lg-block">
+    Mã áo (SKU): <input class="form-control mr-sm-auto search" style="width:150px; height:10px " type="text" name="sku" />
+    Tên sản phầm:  <input class="form-control mr-sm-1 search" style="width:150px; height:10px " type="text" name="name" />
+    Khoảng giá tiền: <input class="form-control mr-sm-1 search" style="width:80px; height:10px " type="number" name="minprice" />-
+    <input class="form-control mr-sm-1 search" style="width:80px" type="number" name="maxprice" />
+    Loại sản phẩm <select asp-items="@ViewBag.ProductType" name="categoryID"></select>
+    <button type="submit">Tìm kiếm</button>
+
+</form>
+<br />
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SKU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SKU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductType.Name)
+                </td>
+                <td>
+
+                    <img src="~/assets/pages/img/products/@Html.DisplayFor(modelItem => item.Image)" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

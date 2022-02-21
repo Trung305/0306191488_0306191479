@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MVC.Models.Cart>
+
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+    int stt = 1;
+}
+
+
+<h4>Giỏ hàng </h4>
+@if (@ViewBag.Total == 0)
+{
+    <div class="shop-products shop-cart">
+        <h5> Bạn chưa có sản phẩm trong giỏ hàng. <a asp-action="index" asp-controller="Home">Mua thêm</a></h5>
+    </div>
+}
+else
+{
+    <section id="cart_items">
+        <div class="container">
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td>STT</td>
+                            <td class="image">Hình ảnh</td>
+                            <td class="description">Tên sản phẩm</td>
+                            <td class="price">Đơn giá</td>
+                            <td class="quantity">Số lượng</td>
+                            <td class="total">Thành tiền</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ca in Model)
+                        {
+                            int thanhtien = ca.Quantity * ca.Product.Price;
+                        <tr>
+                            <td>@(stt++)</td>
+                            <td class="cart_product">
+                                <a href=""><img src="~/assets/pages/img/products/@ca.Product.Image" style="width:100px;height:100px"></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="#">@ca.Product.Name</a></h4>
+                            </td>
+                            <td class="cart_price">
+                                <p>@(ca.Product.Price.ToString("n0"))</p>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <form asp-action="UpdateCart" asp-controller="Home" asp-route-productid="@ca.Product.Id">
+                                        <input asp-for="@ca.Quantity" class="cart_quantity_input" type="text" name="quantity" value="@ca.Quantity" autocomplete="off" size="2">
+                                    </form>
+                                </div>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">@thanhtien</p>
+                            </td>
+                            <td class="cart_delete">
+                                <a asp-controller="Home" asp-action="RemoveCart" asp-route-productid="@ca.Product.Id" class="cart_quantity_delete"><i class="fa fa-times"></i></a>
+                            </td>
+                        </tr>
+                        }
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <a asp-controller="Home" asp-action="Pay" class="btn btn-danger">Thanh toán</a>
+    <a asp-action="RemoveAllCart" asp-controller="Home" class="btn btn-danger">Xóa toàn bộ </a>
+    <hr />
+}

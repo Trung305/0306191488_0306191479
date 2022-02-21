@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MVC.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_layout_admin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row mb-2">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title mb-4">Account</h5>
+                <div class="table-responsive">
+                    <table class="table center-aligned-table">
+                        <thead>
+                            <tr class="text-primary">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Username)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Password)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Phone)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Address)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FullName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IsAdmin)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Avatar)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Username)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Password)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Phone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Address)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FullName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsAdmin)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Avatar)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a> 
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Details</a> 
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

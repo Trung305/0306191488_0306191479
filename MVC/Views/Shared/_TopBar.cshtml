@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!-- BEGIN TOP BAR -->
+@{
+
+    string username;
+    if (ViewBag.AccountUsername != null)
+    {
+        username = ViewBag.AccountUsername;
+    }
+    else
+    {
+        username = "Khách";
+    }
+
+}
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    
+                    <!-- END CURRENCIES -->
+                    <!-- BEGIN LANGS -->
+                    <li class="langs-block">
+                        
+                    </li>
+                    <!-- END LANGS -->
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 additional-nav">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li><a href="shop-account.html">Tài khoản của tôi</a></li>
+                    <li><a href="shop-wishlist.html">Sản phẩm yêu thích</a></li>
+                    @if (@ViewData["TaiKhoan"] != null)
+                    {
+                        <li><a>Xin chào  @username</a></li>
+                        <li><a asp-action="logout" asp-controller="Accounts">Đăng xuất</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-action="login2" asp-controller="Accounts">Đăng nhập</a></li>
+                    }
+                </ul>
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MVC.Models.Product>
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string username;
+    ViewData["Title"] = "Index";
+    ViewData["TaiKhoan"] = ViewBag.AccountUserName;
+    if (ViewBag.AccountUsername != null)
+    {
+        username = ViewBag.AccountUsername;
+    }
+    else
+    {
+        username = "Khách";
+    }
+
+}
+
+
+<div class="main">
+    <div class="container">
+        <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+        <div class="row margin-bottom-40">
+            <!-- BEGIN SALE PRODUCT -->
+            <div class="col-md-12 sale-product">
+                <p>Welcome @username</p>
+                <h2>Sản phẩm mới</h2>
+
+                <div class="owl-carousel owl-carousel5">
+                    @foreach (var p in Model)
+                    {
+                        <div>
+                            <div class="product-item">
+                                <div class="pi-img-wrapper">
+                                    <img src="~/assets//pages/img/products/@p.Image" class="img-responsive" alt="Berry Lace Dress">
+                                    <div>
+                                        <a href="~/assets//pages/img/products/@p.Image" class="btn btn-default fancybox-button">Zoom</a>
+                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    </div>
+                                </div>
+                                <h3><a asp-route="Product" asp-route-productid="@p.Id">@p.Name</a></h3>
+                                <div class="pi-price">@p.Price.ToString("#,##0")</div>
+                                <a asp-controller="Home" asp-action="Addcart" asp-route-id="@p.Id" class="btn btn-default add2cart">Thêm vào giỏ hàng</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- END SALE PRODUCT -->
+        </div>
+        <!-- END SALE PRODUCT & NEW ARRIVALS -->
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40 ">
+            <!-- BEGIN SIDEBAR -->
+            <partial name="_NavBar" />
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="col-md-9 col-sm-8">
+                <h2>Gợi ý hôm nay</h2>
+                <div class="owl-carousel owl-carousel5">
+                    @foreach (Product p in Model)
+                    {
+                        <div>
+                            <div class="product-item">
+                                <div class="pi-img-wrapper">
+                                    <img src="~/assets//pages/img/products/@p.Image" class="img-responsive" alt="Berry Lace Dress">
+                                    <div>
+                                        <a href="~/assets//pages/img/products/@p.Image" class="btn btn-default fancybox-button">Zoom</a>
+                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    </div>
+                                </div>
+                                <h3><a asp-route="Product" asp-route-productid="@p.Id">@p.Name</a></h3>
+                                <div class="pi-price">@p.Price.ToString("#,##0")</div>
+                                <a asp-controller="Home" asp-action="Addcart" asp-route-id="@p.Id" class="btn btn-default add2cart">Thêm vào giỏ hàng</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+        <!-- BEGIN TWO PRODUCTS & PROMO -->
+        <!-- END TWO PRODUCTS & PROMO -->
+    </div>
+</div>
+
+

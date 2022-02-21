@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<!--
+Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
+Version: 1.0.0
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- Head BEGIN -->
+<partial name="_Head"/>
+
+
+<!-- Head END -->
+<!-- Body BEGIN -->
+<body class="ecommerce">
+    <!-- BEGIN STYLE CUSTOMIZER -->
+    <div class="color-panel hidden-sm">
+        <div class="color-mode-icons icon-color"></div>
+        <div class="color-mode-icons icon-color-close"></div>
+        <div class="color-mode">
+            <p>THEME COLOR</p>
+            <ul class="inline">
+                <li class="color-red current color-default" data-style="red"></li>
+                <li class="color-blue" data-style="blue"></li>
+                <li class="color-green" data-style="green"></li>
+                <li class="color-orange" data-style="orange"></li>
+                <li class="color-gray" data-style="gray"></li>
+                <li class="color-turquoise" data-style="turquoise"></li>
+            </ul>
+        </div>
+    </div>
+    <!-- END BEGIN STYLE CUSTOMIZER -->
+    <!-- BEGIN TOP BAR -->
+    <partial name="_TopBar" />
+    <!-- END TOP BAR -->
+    <!-- BEGIN HEADER -->
+    <partial name="_Header" />
+    <!-- Header END -->
+    <!-- BEGIN SLIDER -->
+    <!--<partial name="_Slider" />-->
+    <!-- END SLIDER -->
+
+    <div class="main">
+        <div class="container">
+            <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+            @RenderBody()
+
+        </div>
+    </div>
+    <partial name="_Brand" />
+    <!-- BEGIN PRE-FOOTER -->
+    <partial name="_Footer" />
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

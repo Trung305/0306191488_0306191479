@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <a class="site-logo" asp-action="index" asp-controller="home"><img src="~/assets/corporate/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN CART -->
+        <div class="top-cart-block">
+            <div class="top-cart-info">
+                <a href="javascript:void(0);" class="top-cart-info-count">3 sản phẩm</a>
+                <a href="javascript:void(0);" class="top-cart-info-value">1260000</a>
+            </div>
+            <i class="fa fa-shopping-cart"></i>
+
+            
+        </div>
+        <!--END CART -->
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation">
+            <ul>
+                <li class="dropdown">
+                    <a  asp-action="productlist" asp-controller="home"  asp-route-id="1">
+                        Man
+                    </a>
+                    <!-- BEGIN DROPDOWN MENU -->
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <a href="shop-product-list.html">Hi Tops <i class="fa fa-angle-right"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="shop-product-list.html">Second Level Link</a></li>
+                                <li><a href="shop-product-list.html">Second Level Link</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                                        Second Level Link
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="shop-product-list.html">Third Level Link</a></li>
+                                        <li><a href="shop-product-list.html">Third Level Link</a></li>
+                                        <li><a href="shop-product-list.html">Third Level Link</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="shop-product-list.html">Running Shoes</a></li>
+                        <li><a href="shop-product-list.html">Jackets and Coats</a></li>
+                    </ul>
+                    <!-- END DROPDOWN MENU -->
+                </li>
+                <li> <a asp-action="index" asp-controller="admin">Admin Page</a></li>
+                <!-- BEGIN TOP SEARCH -->
+                <li class="menu-search">
+                    <span class="sep"></span>
+                    <i class="fa fa-search search-btn"></i>
+                    <div class="search-box">
+                        <form action="#">
+                            <div class="input-group">
+                                <input type="text" placeholder="Search" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <!-- END TOP SEARCH -->
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
