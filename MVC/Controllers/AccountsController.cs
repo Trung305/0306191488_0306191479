@@ -219,10 +219,17 @@ namespace MVC.Controllers
                 HttpContext.Response.Cookies.Append("AccountUsername", account.Username.ToString(),cookieOptions);*/
                 var a = _context.Accounts.Where(a => a.Username == Username
                  && a.Password == Password).Select(a=>a.IsAdmin).FirstOrDefault();
-                if(a == true)
+                var b = _context.Accounts.Where(a => a.Username == Username
+                 && a.Password == Password).Select(a => a.Status).FirstOrDefault();
+                if (a == true)
                 {
                     return RedirectToAction("Index", "Admin");
                 }
+                else if(b == false)
+                {
+                    ViewBag.ErrorMessage = "Tài khoản của bạn đã bị khoá";
+                    return View();
+                }    
                 else
                 {
                     HttpContext.Session.SetInt32("AccountID", account.Id);
