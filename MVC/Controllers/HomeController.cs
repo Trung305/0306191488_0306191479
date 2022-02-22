@@ -51,18 +51,16 @@ namespace MVC.Controllers
             var prd = _context.Products.Where(prd => prd.Id == productid).ToList();
             return View(prd);
         }
-        [Route("productlist/{id:int}")]
-        public IActionResult Productlist([FromRoute] int id)
+        public IActionResult Productlist()
         {
             List<Product> products = _context.Products.ToList();
-            if (id == 1)
-            {
-                products = products.Where(p => p.ProductTypeId == 2).ToList();
-            }
-            if (id == 2)
-            {
-                products = products.Where(p => p.ProductTypeId == 1).ToList();
-            }
+            products = products.ToList();
+            //var prd = _context.Products.ToList();
+            return View(products);
+        }
+        public IActionResult ProductBC()
+        {
+            var products = _context.Products.Include(p => p.InvoiceDetails).ToList();
             //var prd = _context.Products.ToList();
             return View(products);
         }
