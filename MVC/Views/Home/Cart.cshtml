@@ -41,7 +41,7 @@ else
                                 <a href=""><img src="~/assets/pages/img/products/@ca.Product.Image" style="width:100px;height:100px"></a>
                             </td>
                             <td class="cart_description">
-                                <h4><a href="#">@ca.Product.Name</a></h4>
+                                <h4><a asp-route="Product" asp-route-productid="@ca.Product.Id">@ca.Product.Name</a></h4>
                             </td>
                             <td class="cart_price">
                                 <p>@(ca.Product.Price.ToString("n0"))</p>
@@ -63,6 +63,7 @@ else
                         }
                         </tbody>
                 </table>
+                <a>Tổng tiền: @ViewBag.Total</a>
             </div>
         </div>
     </section>

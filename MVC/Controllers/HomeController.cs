@@ -154,6 +154,34 @@ namespace MVC.Controllers
             _context.SaveChanges();
             return RedirectToAction("Cart");
         }
+        public IActionResult UpdateProduct(int productId, int quantity)
+        {
+            if (HttpContext.Session.GetString("AccountUsername") != null)
+            {
+                string username = HttpContext.Session.GetString("AccountUsername");
+                int accountId = _context.Accounts.FirstOrDefault(a => a.Username == username).Id;
+                Cart cart = _context.Carts.FirstOrDefault(c => c.AccountId == accountId && c.ProductId == productId);
+                if (cart == null)
+                {
+                    cart = new Cart();
+                    cart.AccountId = accountId;
+                    cart.ProductId = productId;
+                    cart.Quantity = quantity;
+                    _context.Carts.Add(cart);
+                }
+                else
+                {
+                    cart.Quantity += quantity;
+                }
+                _context.SaveChanges();
+                return RedirectToAction("Cart");
+            }
+            else
+            {
+                return RedirectToAction("Login2", "Accounts");
+            }
+
+        }
         public IActionResult Pay()
         {
             string username = HttpContext.Session.GetString("AccountUsername");
@@ -222,7 +250,7 @@ namespace MVC.Controllers
             }
             return true;
         }
-
+       
         public IActionResult thongtin()
         {
             return View();

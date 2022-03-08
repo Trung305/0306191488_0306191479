@@ -64,10 +64,13 @@
                                     </div>
                                 </div>
                                 <div class="product-page-cart">
-                                    <div class="product-quantity">
-                                        <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
-                                    </div>
-                                    <a asp-controller="Home" asp-action="Addcart" asp-route-id="@p.Id" class="btn btn-primary" type="submit">Thêm vào giỏ hàng</a>
+                                    <form asp-action="UpdateProduct" asp-controller="Home" asp-route-productid="@p.Id">
+                                        <div class="product-quantity">
+                                            <input type="text" name="quantity" value="1" readonly class="form-control input-sm">
+                                        </div>
+                                        <button class="btn btn-primary" type="submit">Thêm vào giỏ hàng</button>
+                                        @*<a asp-controller="Home" asp-action="Addcart" asp-route-id="@p.Id" class="btn btn-primary" type="submit"></a>*@
+                                    </form>
                                 </div>
                                 <div class="review">
                                     <input type="range" value="4" step="0.25" id="backing4">
@@ -181,30 +184,7 @@
                 <!-- END CONTENT -->
             </div>
             <!-- END SIDEBAR & CONTENT -->
-            <!-- BEGIN SIMILAR PRODUCTS -->
-            <div class="row margin-bottom-40">
-                <div class="col-md-12 col-sm-12">
-                    <h2>Sản phẩm phổ biến nhất</h2>
-                    <div class="owl-carousel owl-carousel4">
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="~/assets/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                    <div>
-                                        <a href="~/assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Xem</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">Xem kĩ</a>
-                                    </div>
-                                </div>
-                                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a asp-controller="Home" asp-action="Addcart" asp-route-id="@p.Id" class="btn btn-default add2cart">Thêm vào giỏ hàng</a>
-                                <div class="sticker sticker-new"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END SIMILAR PRODUCTS -->
+         
         </div>
     </div>
 
